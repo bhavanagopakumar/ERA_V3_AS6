@@ -56,9 +56,12 @@ class Net(nn.Module):
         )
 
         self.conv7 = nn.Sequential(
-            nn.Conv2d(8, 10, 3),
+            nn.Conv2d(8, 16, 3),
             nn.ReLU()
         )
+
+        # Adding a fully connected layer
+        self.fc = nn.Linear(16, 10)  # 16 input features, 10 output classes
 
     def forward(self, x):
         x = self.conv1(x)
@@ -70,5 +73,10 @@ class Net(nn.Module):
         x = self.conv5(x)
         x = self.conv6(x)
         x = self.conv7(x)
-        x = x.view(-1, 10)
+        
+        # Global average pooling
+        x = F.adaptive_avg_pool2d(x, 1)
+        x = x.view(-1, 16)  # Flatten to (batch_size, 16)
+        x = self.fc(x)      # Pass through fully connected layer
+        
         return F.log_softmax(x, dim=1) 
