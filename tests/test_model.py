@@ -6,7 +6,7 @@ from pathlib import Path
 # Add the parent directory to system path to import the model
 sys.path.append(str(Path(__file__).parent.parent))
 
-from Assignment_6.model import Net
+from model import Net
 
 def test_parameter_count():
     """Test that model has less than 20k parameters"""
