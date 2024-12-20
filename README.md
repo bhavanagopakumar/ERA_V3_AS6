@@ -62,3 +62,10 @@ Epoch 17: 99.49% (9949/10000) ← Best
 Epoch 18: 99.38% (9938/10000)
 Epoch 19: 99.32% (9932/10000)
 ```
+
+## Note
+```
+* Detailed test results are in the ERA_v3_S6.ipynb file.
+* Model architecture is in the model.py file.
+* As I havent used GAP or Fully connected layers, the final test case is failing.
+```
