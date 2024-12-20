@@ -38,4 +38,4 @@ def test_gap_or_fc():
     # Check for FC layer
     has_fc = any(isinstance(m, torch.nn.Linear) for m in modules)
     
-    assert has_gap or has_fc, "Model should use either Global Average Pooling or proper reshaping at the end"
+    assert has_gap or has_fc, "Model doesnt use Global Average Pooling or doesnt end with a fully connected layer"
